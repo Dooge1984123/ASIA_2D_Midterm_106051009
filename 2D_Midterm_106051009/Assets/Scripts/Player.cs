@@ -1,15 +1,25 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI; 
 
 public class Player : MonoBehaviour
 {
     public GameObject final;
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if(true)
-        print("碰到傳送們");
-        final.SetActive(true);
+
+    public Text textcount;
+    public int count;
+    private  void   OnTriggerEnter2D(Collider2D collision)
+    { if (collision.name == "Particle System")
+        {
+         
+            final.SetActive(true);
+        }
+        if (collision.tag == "蘋果")
+        {
+           Destroy(collision.gameObject);
+            count ++ ;
+        }
     }
 
 }
